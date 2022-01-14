@@ -1,7 +1,7 @@
 import XRegExp from 'xregexp';
 import patterns from '../Patterns/index.js';
 
-let matchPattern = (str) => {
+let matchPattern = (str, cb) => {
 
     let getResult = patterns.find(item => 
         {
@@ -10,11 +10,11 @@ let matchPattern = (str) => {
         
     if (getResult)
     {
-        return ({intent : getResult.intent}) ;
+        return cb({intent : getResult.intent}) ;
     }
     else 
     {
-        return ({intent : 'Whaaaaaaat ?'}) ;
+        return cb({}) ;
     }
 }
 
