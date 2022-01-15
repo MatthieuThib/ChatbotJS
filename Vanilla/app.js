@@ -26,7 +26,7 @@ rl.on ('line', reply => {
                             {
                                 case 'Hello':
                                     console.log('Hello')
-                                    console.log(cb.entities.greeting)
+                                    console.log(cb.entities.groups.greeting)
                                     rl.setPrompt('> ');
                                     rl.prompt();
                                     break;
@@ -38,9 +38,10 @@ rl.on ('line', reply => {
                                     break;
 
                                 case 'Get weather':
-                                    console.log('You want some information about the weather ..')
-                                    console.log(`${cb.entities.time}`)
-                                    console.log(`${cb.entities.city}`)
+                                    console.log('You want some information about the weather:')
+                                    console.log('Time: ' + cb.entities.groups.time)
+                                    console.log('Location: ' + cb.entities.groups.city)
+                                    
                                     rl.setPrompt('> ');
                                     rl.prompt();
                                     break;
