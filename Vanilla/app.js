@@ -6,6 +6,8 @@ const require = createRequire(import.meta.url);
 
 import matcher from './Matcher/index.js'
 
+//const matcher = require('./Matcher');
+
 
 var prompt = require('prompt');
 const Readline = require('readline'); // for reading nputs
@@ -20,11 +22,11 @@ console.log('\n Hi ! I am a ChatBot. \n You can ask me anything, I will try to r
 rl.setPrompt('> ');
 rl.prompt();
 rl.on ('line', reply => { 
-    matcher(reply, cb => { 
-                            switch (cb.intent)
+    matcher(reply, cb => { switch (cb.intent)
                             {
                                 case 'Hello':
                                     console.log('Hello')
+                                    console.log(cb.entities.greeting)
                                     rl.setPrompt('> ');
                                     rl.prompt();
                                     break;
@@ -37,6 +39,8 @@ rl.on ('line', reply => {
 
                                 case 'Get weather':
                                     console.log('You want some information about the weather ..')
+                                    console.log(`${cb.entities.time}`)
+                                    console.log(`${cb.entities.city}`)
                                     rl.setPrompt('> ');
                                     rl.prompt();
                                     break;
