@@ -26,17 +26,12 @@ const getWeather = async (location, time) => {
   await axios.get('http://dataservice.accuweather.com/locations/v1/search?apikey=' + apikey, { params: { q: location }
     })
       .then(response => {
-        // On récupère le premier résultat dans la liste
-        const result = response.data.shift();
-        // On stocke la locationKey dans la variable pour l'utiliser plus tard
-        locationKey = result.Key;
-        // On stocke le nom de la ville dans la variable pour l'utiliser plus tard
-        realLocationName = result.EnglishName;
-        // On stocke le nom du pays dans la variable pour l'utiliser plus tard
-        realLocationCountryName = result.Country.EnglishName;
+        const result = response.data.shift(); // We access the first element
+        locationKey = result.Key; // We store the location key
+        realLocationName = result.EnglishName; // We store the location's english name
+        realLocationCountryName = result.Country.EnglishName; // We store the location country's english name
       })
-      .catch(error => {
-        console.log(error);
+      .catch(error => { console.log(error);
       });
 
   // Now that we have the location key corresponding to the city entered by the user, 
@@ -101,82 +96,3 @@ const getWeather = async (location, time) => {
 }
 
 export default getWeather;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//****************************************************************************************************************************************** */
-
-// Ca c'est juste un example d'url de requete comme celle de la première requête :
-// http://dataservice.accuweather.com/locations/v1/search?apikey=qDI5YoJ7U5KBFET8wHmurpftsclAKkKg&q=Paris&language=en&details=true
-
-// Replacer la apikey si elle n'est pas valide (aka error 401) et ouvrez sur votre navigateur (Firefox par exemple) et vous pourrez voir le résultat renvoyé :)
-
-
-
-
-// Ca en dessous, c'est juste un exemple de ce que peux retourner la 2e requête :)
-// Mais vous pouvez tester ici : https://developer.accuweather.com/accuweather-forecast-api/apis/get/forecasts/v1/daily/1day/%7BlocationKey%7D
-
-// const obj = {
-//   "Headline": {
-//     "EffectiveDate": "2022-01-16T19:00:00+01:00",
-//     "EffectiveEpochDate": 1642356000,
-//     "Severity": 5,
-//     "Text": "Expect showers Sunday evening",
-//     "Category": "rain",
-//     "EndDate": "2022-01-17T01:00:00+01:00",
-//     "EndEpochDate": 1642377600,
-//     "MobileLink": "http://www.accuweather.com/en/fr/paris/623/daily-weather-forecast/623?lang=en-us",
-//     "Link": "http://www.accuweather.com/en/fr/paris/623/daily-weather-forecast/623?lang=en-us"
-//   },
-//   "DailyForecasts": [
-//     {
-//       "Date": "2022-01-15T07:00:00+01:00",
-//       "EpochDate": 1642226400,
-//       "Temperature": {
-//         "Minimum": {
-//           "Value": 31,
-//           "Unit": "F",
-//           "UnitType": 18
-//         },
-//         "Maximum": {
-//           "Value": 45,
-//           "Unit": "F",
-//           "UnitType": 18
-//         }
-//       },
-//       "Day": {
-//         "Icon": 3,
-//         "IconPhrase": "Partly sunny",
-//         "HasPrecipitation": false
-//       },
-//       "Night": {
-//         "Icon": 38,
-//         "IconPhrase": "Mostly cloudy",
-//         "HasPrecipitation": false
-//       },
-//       "Sources": [
-//         "AccuWeather"
-//       ],
-//       "MobileLink": "http://www.accuweather.com/en/fr/paris/623/daily-weather-forecast/623?day=1&lang=en-us",
-//       "Link": "http://www.accuweather.com/en/fr/paris/623/daily-weather-forecast/623?day=1&lang=en-us"
-//     }
-//   ]
-// };
