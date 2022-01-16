@@ -26,9 +26,8 @@ You are on the ReadMe.md file.
 ## How it works
 This bot simply works by gathering information in the user's sentence like the location and the timestamp.
 Then he uses the accuweather API to fetch weather data.
-After some data processing, he reply back to the user.
-Information about Accuweather API:     
-The link to access it is: [https://developer.accuweather.com/apis](https://developer.accuweather.com/apis)
+After some data processing, he reply back to the user.     
+Information about Accuweather API: [https://developer.accuweather.com/apis](https://developer.accuweather.com/apis)
 
 ## Example
 Here, a quick overview of an iteraction with the weather bot !
