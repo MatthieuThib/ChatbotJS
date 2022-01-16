@@ -5,7 +5,6 @@ let createEntities = (str, patterns) => {
     return XRegExp.exec(str, XRegExp(patterns, "i"))
 }
 
-
 let matchPattern = (str, cb) => {
 
     let getResults = patterns.find(item => {
@@ -24,4 +23,3 @@ let matchPattern = (str, cb) => {
 }
 
 export default matchPattern
-//module.exports = {matchPattern};
