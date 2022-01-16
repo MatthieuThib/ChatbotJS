@@ -3,9 +3,9 @@
 The aim of this project was to build a Rule-based Weather bot in JavaScript.
 
 ## Team
-Chloé TEMPO
-Sebastien YUNG
-Matthieu THIBAUT
+- Chloé TEMPO
+- Sebastien YUNG
+- Matthieu THIBAUT
 
 ## Table Of Contents
 - [Vanilla](./Vanilla/)
